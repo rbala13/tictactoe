@@ -1,0 +1,99 @@
+@import '@angular/material/prebuilt-themes/deeppurple-amber.css';
+
+
+.ticTacBoard  {
+    display: grid;
+    grid-template-columns: 100px 100px 100px;
+    background-color: white;
+
+}
+.ticTacBoard .ticTacBoardItem {
+    background:white;
+    border: 1px solid black;
+    padding: 15px;
+    height: 75px;
+}
+
+
+.ticTacBoard .ticTacBoardItem:first-child{
+    border-left: none;
+    border-top: none;
+    border-bottom: none;
+}
+
+.ticTacBoard .ticTacBoardItem:last-child{
+    border-right: none;
+    border-bottom: none;
+}
+
+.ticTacBoard .ticTacBoardItem:nth-child(2){
+    border-top: none;
+    border-bottom: none;
+    border-left: none;
+    border-right: none;
+}
+
+.ticTacBoard .ticTacBoardItem:nth-child(3){
+    border-right: none;
+    border-top: none;
+    border-bottom: none;
+}
+
+.ticTacBoard .ticTacBoardItem:nth-child(6){
+    border-bottom: none;
+    border-right: none;
+}
+.ticTacBoard .ticTacBoardItem:nth-child(5){
+    border-right: none;
+    border-left: none;
+    border-bottom: none;
+}
+
+.ticTacBoard .ticTacBoardItem:nth-child(4){
+    border-left: none;
+    border-bottom: none;
+}
+
+.ticTacBoard .ticTacBoardItem:nth-child(8){
+    border-left: none;
+    border-right: none;
+    border-bottom: none;
+}
+
+.ticTacBoard .ticTacBoardItem:nth-child(7){
+    border-left: none;
+    border-bottom: none;
+}
+
+
+.wrapper{
+    display: block;
+}
+
+.tic-tac-table,
+.tic-tac-logs
+{
+    display: inline-block;
+}
+
+.wonordraw{
+    font-size: 20px;
+    font-weight: bold;
+
+}
+
+.ticTacBoardItem{
+    text-align: center;
+
+}
+
+.ticTacBoardItem span{
+    font-size: 50px;
+    
+    line-height: 70px;
+}
+
+#logs{
+    background: blue;
+    color: white;
+}

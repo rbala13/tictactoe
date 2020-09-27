@@ -1,0 +1,82 @@
+<div class="mode-selector" *ngIf="!buttonClicked">
+  <h2>Select Mode</h2>
+  <button mat-raised-button color="primary" (click)="onplayervspcClick()">
+    Player vs PC
+  </button>
+  <button mat-raised-button color="primary" (click)="playervsplayerClick()">
+    Player vs Player
+  </button>
+</div>
+
+<div class="main-page">
+  <div class="tic-tac-table" *ngIf="buttonClicked">
+    <h2>You Selected {{ selectedText }}</h2>
+
+    <form [formGroup]="createForm" class="create-form" *ngIf="playervsplayer">
+      <div>
+        <span class="input-name">First Player:</span>
+        <input
+          matInput="firstplayer"
+          formControlName="firstplayer"
+          #firstplayer
+        />
+
+        <div>
+          <span class="input-name">Second Player:</span>
+          <input
+            matInput="secondplayer"
+            formControlName="secondplayer"
+            #secondplayer
+          />
+        </div>
+
+        <button
+          mat-raised-button
+          color="primary"
+          type="submit"
+          (click)="addPlayers(firstplayer.value, secondplayer.value)"
+        >
+          Add
+        </button>
+      </div>
+    </form>
+
+    <form [formGroup]="vspcForm" class="create-form" *ngIf="playervspc">
+      <div>
+        <span class="input-name">Player:</span>
+        <input matInput="player" formControlName="player" #player />
+
+        <button
+          mat-raised-button
+          color="primary"
+          type="submit"
+          (click)="addPlayerPc(player.value)"
+        >
+          Add
+        </button>
+      </div>
+    </form>
+
+    <div class="wrapper">
+      <div class="ticTacBoard" *ngIf="playervsplayerTableAfterInput">
+        <div
+          class="ticTacBoardItem"
+          *ngFor="let arrs of arr"
+          (click)="TabClicked(arrs)"
+        >
+          <span [id]="arrs"></span>
+        </div>
+      </div>
+      <div class="tic-tac-logs" *ngIf="playerpsplayerlogs">
+        <p id="logs" *ngFor="let logs of gamelogs">{{ logs }}<br /></p>
+      </div>
+      <div class="tic-tac-logs" *ngIf="!playerpsplayerlogs">
+        <p id="logs" *ngFor="let logs of gamelogs">{{ logs }}<br /></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="WonOrDraw" class="wonordraw">
+  {{ WonOrDraw }}
+</div>
